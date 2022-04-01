@@ -13,4 +13,6 @@ RUN     apt-get update \
             python3 \
             python3-venv \
             python3-pip \
+            openssh-client \
+            git \
     && pip3 install platformio
