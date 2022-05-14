@@ -45,22 +45,22 @@ for ENVIRONMENT in ${ENVIRONMENTS}; do
     curl \
       --header "JOB-TOKEN: ${CI_JOB_TOKEN}" \
       --upload-file ".pio/build/${ENVIRONMENT}/firmware.bin" \
-      "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${CI_PROJECT_NAME}/${VERSION}/firmware-esp32_dev-${VERSION}.bin"
+      "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${CI_PROJECT_NAME}/${VERSION}/firmware-${ENVIRONMENT}-${VERSION}.bin"
   else
     echo "WARNING: '${ENVIRONMENT}' bin file not found '${BIN_FILE}'"
   fi
 
   # === ELF FILE ===
-  ELF_FILE=".pio/build/${ENVIRONMENT}/firmware.elf"
-  if [[ -f "${ELF_FILE}" ]]; then
-    echo "INFO: Uploading '${ELF_FILE}'"
-    curl \
-      --header "JOB-TOKEN: ${CI_JOB_TOKEN}" \
-      --upload-file "${ELF_FILE}" \
-      "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${CI_PROJECT_NAME}/${VERSION}/firmware-esp32_dev-${VERSION}.elf"
-  else
-      echo "WARNING: '${ENVIRONMENT}' elf file not found '${ELF_FILE}'"
-  fi
+  #  ELF_FILE=".pio/build/${ENVIRONMENT}/firmware.elf"
+  #  if [[ -f "${ELF_FILE}" ]]; then
+  #    echo "INFO: Uploading '${ELF_FILE}'"
+  #    curl \
+  #      --header "JOB-TOKEN: ${CI_JOB_TOKEN}" \
+  #      --upload-file "${ELF_FILE}" \
+  #      "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${CI_PROJECT_NAME}/${VERSION}/firmware-esp32_dev-${VERSION}.elf"
+  #  else
+  #      echo "WARNING: '${ENVIRONMENT}' elf file not found '${ELF_FILE}'"
+  #  fi
   echo "INFO: Uploaded '${ENVIRONMENT}'"
 done
 
