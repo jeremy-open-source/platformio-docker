@@ -16,3 +16,5 @@ RUN     apt-get update \
             openssh-client \
             git \
     && pip3 install platformio
+
+COPY bin/* /usr/local/bin/
