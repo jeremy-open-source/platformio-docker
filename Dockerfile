@@ -1,4 +1,4 @@
-FROM ubuntu:21.10
+FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -15,6 +15,6 @@ RUN     apt-get update \
             python3-pip \
             openssh-client \
             git \
-    && pip3 install platformio
+    && pip3 install platformio~=6.1.3
 
 COPY bin/* /usr/local/bin/

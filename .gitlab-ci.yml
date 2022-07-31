@@ -17,7 +17,7 @@ build:
       --pull
       --cache-from $CI_REGISTRY_IMAGE:latest
       --tag $CI_REGISTRY_IMAGE:latest
-      --tag $CI_REGISTRY_IMAGE:ubuntu2110
+      --tag $CI_REGISTRY_IMAGE:ubuntu2204
       .
     - docker push $CI_REGISTRY_IMAGE:latest
-    - docker push $CI_REGISTRY_IMAGE:ubuntu2110
+    - docker push $CI_REGISTRY_IMAGE:ubuntu2204
