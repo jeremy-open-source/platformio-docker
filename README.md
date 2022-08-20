@@ -1,3 +1,3 @@
 # PlatformIO Docker
 
-Platform.io in a Docker container
+Platform.io with helper tools and scripts in a Docker container

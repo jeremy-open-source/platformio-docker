@@ -15,6 +15,12 @@ RUN     apt-get update \
             python3-pip \
             openssh-client \
             git \
-    && pip3 install platformio~=6.1.3
+            jq \
+    && mkdir /opt/platformio-docker
+
+WORKDIR /opt/platformio-docker
+
+COPY requirements.txt ./
+RUN pip3 install -r requirements.txt
 
 COPY bin/* /usr/local/bin/
